@@ -19,6 +19,12 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
+//cloudinary.config({
+//  cloud_name: "dwucgfuo2",
+//  api_key: "917284229925649",
+//  api_secret: "CW_w8KMgnxX5X8Hc__tQEFsjR8I"
+//});
+
 // Endpoint
 app.post("/subir", async (req, res) => {
   try {
