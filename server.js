@@ -49,8 +49,8 @@ app.post("/subir", async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 // Levantar servidor
 app.listen(PORT, () => {
-  console.log("API corriendo en http://localhost:3000");
+  console.log("API corriendo en http://localhost:3001");
 });
