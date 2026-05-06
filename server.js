@@ -1,8 +1,10 @@
+require('dotenv').config();
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
+
 
 const app = express();
 app.use(cors());
@@ -12,9 +14,9 @@ app.use(express.raw({ type: "*/*", limit: "10mb" }));
 
 // Configuración Cloudinary
 cloudinary.config({
-  cloud_name: "dwucgfuo2",
-  api_key: "917284229925649",
-  api_secret: "CW_w8KMgnxX5X8Hc__tQEFsjR8I"
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
 // Endpoint
@@ -41,7 +43,8 @@ app.post("/subir", async (req, res) => {
   }
 });
 
+const PORT = process.env.PORT || 3000;
 // Levantar servidor
-app.listen(3000, () => {
+app.listen(PORT, () => {
   console.log("API corriendo en http://localhost:3000");
 });
